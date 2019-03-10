@@ -7,10 +7,11 @@ function createFolder(){
     "folderName":folderName
   },
   success: function() {
-   alert("Директория создана"); 
- },
- error:function(){
+    location.reload();
+  },
+  error:function(){
    alert("Директория не создана");
+   location.reload();
  } 
 });
 }
@@ -23,7 +24,7 @@ function deleteFolder(item){
     "folder":item
   },
   success: function(msg){
-    alert(msg);
+    location.reload();
   }
 });
 }
@@ -33,8 +34,6 @@ function upload(){
   var form_data = new FormData();
 
   form_data.append('file', file_data);
-  alert(form_data);
-
   $.ajax({
     url: 'upload.php',
     dataType: 'text',
@@ -44,7 +43,7 @@ function upload(){
     data: form_data,
     type: 'post',
     success: function(php_script_response){
-      alert(php_script_response);
+      location.reload();
     }
   });
 }
